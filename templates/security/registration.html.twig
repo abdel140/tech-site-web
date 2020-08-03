@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class=" col-lg-offset-2 col-lg-8">
+            <h1>Inscription</h1>
+            {{ form_start(form_registration) }}
+            {{ form_row(form_registration.username,{'label':'Nom d\'utilisateur','attr':{'placeholder':'Nom d\'utilisateur'}}) }}
+            {{ form_row(form_registration.email,{'label':'Email','attr':{'placeholder':'Adresse email'}}) }}
+            {{ form_row(form_registration.password,{'label':'Mot de passe','attr':{'placeholder':'Mot de passe : 6 charactères minimum'}}) }}
+            {{ form_row(form_registration.confirm_password,{'label':'Confirmation du mot de passe','attr':{'placeholder':'Répéter le mot de passe'}}) }}
+            <button type="submit" class="btn btn-primary">Inscription</button>
+            {{ form_end(form_registration) }}
+        </div>
+    </div>
+</div>
+            {% endblock %}

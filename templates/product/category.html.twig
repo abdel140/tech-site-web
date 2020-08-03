@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Category produit {% endblock %}
+{% block aside %}
+{% endblock %}
+{% block body %}
+    {% include 'general/header.html.twig' %}
+    <div class="row">
+        <div class="col-lg-2">
+            {% include 'general/aside.html.twig' %}
+        </div>
+        <div class="col-lg-10">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col lg-4">
+                        <article>
+                            <div class="title">
+                                <h1>{{ product.name }}</h1>
+                            </div>
+                            <img src="{{ product.image }}" alt="img phone">
+                            <h6>{{ product.category.name }}</h6>
+                            <p>{{ product.description }}</p>
+                            <div class="price">{{ product.price }}</div>
+                            <a class="btn btn-primary" href="{{ path('product_getProduct',{'id': product.id}) }}">Détails</a>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<div class="aside">
+    <ul class="list-group">
+        {% if categoriesParents is defined %}
+            {% for categoryP in categoriesParents %}
+                <li>
+                <div class="dropright">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{ categoryP.name }}
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        {% for category in categoryP.categoryId %}
+                        <li><a  href="{{ path("product_getProductsByCategory", {'category_id':category.id}) }}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                </li>
+            {% endfor %}
+        {% else %}
+            No category found.
+        {% endif %}
+    </ul>
+
+</div>
